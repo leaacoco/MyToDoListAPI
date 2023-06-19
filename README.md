@@ -1,6 +1,6 @@
-# API EMPLOYE
+# API Tâche
 
-API pour Employé utilisé pour un entretien technique.
+API pour Tâche utilisé pour lister les rappels.
 
 ## Prérequis
 Avant d'installer le projet, vous devez vous assurer d'avoir les éléments suivants installés sur votre machine :
@@ -10,7 +10,7 @@ Avant d'installer le projet, vous devez vous assurer d'avoir les éléments suiv
 - Node.js et NPM
 - Angular CLI
 - Une connexion internet
-- le repo fakeAPI installé et lancé en arrière plan ( https://github.com/danou294/fakeapi.git )
+- le repo fakeAPI installé et lancé en arrière plan ( https://github.com/leaacoco/MyToDoListAPI.git )
 
 ## Installation
 - ### Étape 1 : Cloner le projet
@@ -18,8 +18,8 @@ Avant d'installer le projet, vous devez vous assurer d'avoir les éléments suiv
 Ouvrez un terminal et exécutez la commande suivante :
 
 ```
-git clone https://github.com/danou294/fakeapi.git
-```
+git clone https://github.com/leaacoco/MyToDoListAPI.git
+``` 
 ***
 
 - ### Étape 2 : Installer json server
@@ -53,38 +53,36 @@ username: admin
 password: admin
 ``` 
 ### GET
-#### Obtenir la liste des employés
-##### http://localhost:3000/employees
+#### Obtenir la liste des tâches
+##### http://localhost:3000/tasks
 
 <br>
 
 ### POST
-#### Créer un employé
-##### http://localhost:3000/employees
+#### Créer une tâche
+##### http://localhost:3000/tasks
 ##### avec en paramètres de la requête POST :
 
 ``` 
 {
-    "first_name": "xxx",
-    "last_name": "xxx",
-    "email": "xxx",
+    "content": "content"
 }
 ```
 
 ### PUT
-#### Modifier un employé avec son id
-##### http://localhost:3000/employees/{id}
+#### Modifier une tâche avec son id
+##### http://localhost:3000/tasks/{id}
 <br>
 
 ### DELETE
-#### Supprimer un employé avec son id
-##### http://localhost:3000/employees/{id}
+#### Supprimer une tâche avec son id
+##### http://localhost:3000/tasks/{id}
 
 
 ### PUT
-#### Modifier un employé
-##### Il faut d'abord récupérer l'object employé avec un GET puis la modifier et la passer en paramètres
-##### http://localhost:3000/eployees/{id}
+#### Modifier une tâche
+##### Il faut d'abord récupérer l'object tâche avec un GET puis la modifier et la passer en paramètres
+##### http://localhost:3000/tasks/{id}
 
 ```
 Exemple :
