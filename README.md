@@ -90,53 +90,51 @@ Exemple :
 Avant
 
 {
-    "id": 1,
-    "num": "XXX",
-    "firstname": "First name",
-    "lastname": "Last name",
-    "email": "employe1@codingthesmartway.com",
-    "age": "age",
-    "validated": false,
-    "profilImage": "./images/man.png",
-    "materialAssigned": [
-        {
-            "id": 1,
-            "ref": "XX1",
-            "state": "Neuf",
-            "name": "Macbook",
-            "image": "./images/macbook.jpg"
-        },
-        {
-            "id": 2,
-            "ref": "XX2",
-            "state": "Neuf",
-            "name": "SamsungS10",
-            "image": "./images/samsungs10.jpg"
-        }
-    ]
+  "id": 1,
+  "nom": "Cohen",
+  "prénom": "Lea",
+  "role": "utilisateur",
+  "email": "leacoco@gmail.com",
+  "task": [
+      {
+          "id": 1,
+          "statut": false,
+          "name": "menage",
+          "content": "faire le ménage dans le salon"
+      },
+      {
+         "id": 1,
+          "statut": false,
+          "name": "cuisine",
+          "content": "faire à manger"
+      }
+  ]
 }
 
 Après 
 
 {
-    "id": 1,
-    "num": "XXX",
-    "firstname": "First name",
-    "lastname": "Last name",
-    "email": "employe1@codingthesmartway.com",
-    "age": "age",
-    "validated": false,
-    "profilImage": "./images/man.png",
-    "materialAssigned": [
-        {
-            "id": 1,
-            "ref": "XX1",
-            "state": "Neuf",
-            "name": "Macbook",
-            "image": "./images/macbook.jpg"
-        }
-    ]
+  "id": 1,
+  "nom": "Cohen",
+  "prénom": "Margot",
+  "role": "utilisateur",
+  "email": "margotcohen083@gmail.com",
+  "task": [
+      {
+          "id": 1,
+          "statut": false,
+          "name": "menage",
+          "content": "faire le ménage dans le salon"
+      },
+      {
+         "id": 1,
+          "statut": false,
+          "name": "cuisine",
+          "content": "faire à manger"
+      }
+  ]
 }
+
 
 
 

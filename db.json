@@ -1,18 +1,21 @@
 {
-  "tasks": [
-    {
-      "id": 1,
-      "id_user": "XXX",
-      "title": "title",
-      "validated": false,
-      "content": "content"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password": "admin"
-    }
+  "id": 1,
+  "nom": "Cohen",
+  "prénom": "Margot",
+  "role": "utilisateur",
+  "email": "margotcohen043@gmail.com",
+  "task": [
+      {
+          "id": 1,
+          "statut": false,
+          "name": "menage",
+          "content": "faire le ménage dans le salon"
+      },
+      {
+         "id": 1,
+          "statut": false,
+          "name": "cuisine",
+          "content": "faire à manger"
+      }
   ]
 }
