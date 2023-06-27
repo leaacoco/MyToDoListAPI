@@ -1,21 +1,12 @@
 {
-  "id": 1,
-  "nom": "Cohen",
-  "prénom": "Margot",
-  "role": "utilisateur",
-  "email": "margotcohen043@gmail.com",
-  "task": [
-      {
-          "id": 1,
-          "statut": false,
-          "name": "menage",
-          "content": "faire le ménage dans le salon"
-      },
-      {
-         "id": 1,
-          "statut": false,
-          "name": "cuisine",
-          "content": "faire à manger"
-      }
+  "users": [
+    {
+      "id": 2,
+      "nom": "levy",
+      "prenom": "daniel",
+      "role": "utilisateur",
+      "email": "danou29442@gmail.com",
+      "password": "Monbestpassword2904?!"
+    }
   ]
 }
