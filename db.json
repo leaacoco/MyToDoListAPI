@@ -1,12 +1,11 @@
 {
   "users": [
     {
-      "id": 2,
       "nom": "levy",
-      "prenom": "daniel",
+      "prenom": "menahem",
       "role": "utilisateur",
       "email": "danou29442@gmail.com",
-      "password": "Monbestpassword2904?!"
+      "id": 2
     }
   ]
 }
