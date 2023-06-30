@@ -1,0 +1,17 @@
+# Node.js
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environnement de développement
+/.env
+
+# Fichiers de configuration spécifiques à l'IDE
+.idea
+.vscode
+
+# Autres fichiers et répertoires générés
+.DS_Store
+/dist
