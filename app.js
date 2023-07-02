@@ -4,9 +4,19 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const crypto = require('crypto');
+
+const generateSecretKey = () => {
+  return crypto.randomBytes(64).toString('hex');
+};
+
+const secretKey = generateSecretKey();
+
 
 const app = express();
 const port = 3000;
+
+
 
 app.use(cors({
   origin: 'http://localhost:4200',
@@ -15,10 +25,16 @@ app.use(cors({
 
 app.use(bodyParser.json());
 app.use(session({
-  secret: 'your-secret-key', // Changez cette clé secrète selon vos besoins
+  secret: secretKey, // Changez cette clé secrète selon vos besoins
   resave: false,
   saveUninitialized: true
 }));
+
+// Exemple d'initialisation de la session
+app.get('/', (req, res) => {
+  req.session.foo = 'bar'; // Initialisation de la session
+  res.send('Session initialized');
+});
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -133,6 +149,57 @@ app.delete('/users/:id', (req, res) => {
   });
 });
 
+app.delete('/users/:userId/tasks/:taskId', (req, res) => {
+  const userId = req.params.userId;
+  const taskId = req.params.taskId;
+  const sql = 'DELETE FROM task WHERE user_id = ? AND id = ?';
+  db.query(sql, [userId, taskId], (err, result) => {
+    if (err) {
+      throw err;
+    }
+    if (result.affectedRows === 0) {
+      res.status(404).json({ message: 'Tâche non trouvée' });
+    } else {
+      res.json({ message: 'Tâche supprimée avec succès' });
+    }
+  });
+});
+
+app.put('/tasks/:taskId', (req, res) => {
+  const taskId = req.params.taskId;
+  const { nom, commentaire, status } = req.body;
+  const updatedTask = { nom, commentaire, status };
+  const sql = 'UPDATE task SET ? WHERE id = ?';
+  db.query(sql, [updatedTask, taskId], (err, result) => {
+    if (err) {
+      throw err;
+    }
+    if (result.affectedRows === 0) {
+      res.status(404).json({ message: 'Tâche non trouvée' });
+    } else {
+      res.json({ message: 'Tâche mise à jour avec succès' });
+    }
+  });
+});
+
+app.get('/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  const sql = 'SELECT * FROM task WHERE id = ?';
+  db.query(sql, [taskId], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    if (results.length === 0) {
+      res.status(404).json({ message: 'Tâche non trouvée' });
+    } else {
+      const task = results[0];
+      res.json(task);
+    }
+  });
+});
+
+
+
 app.get('/users/:id/tasks', (req, res) => {
   const userId = req.params.id;
   const sql = 'SELECT * FROM task WHERE user_id = ?';
@@ -184,6 +251,7 @@ app.post('/login', (req, res) => {
     }
   });
 });
+
 
 
 // Endpoint pour vérifier l'état de connexion de l'utilisateur
